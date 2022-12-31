@@ -3,7 +3,7 @@
 
 asp.net Core MCV ile Blog Projesi
 
-##Entities
+## Entities
 - About
 - Blog
 - Category
