@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
                 <h3>Hakkımızda</h3>
-                <p>Lorem Ipsum pasajlarının birçok çeşitlemesi vardır. Ancak bunların büyük bir çoğunluğu mizah katılarak veya rastgele sözcükler eklenerek değiştirilmişlerdir.</p>
+                <p>Lorem Ipsum pasajlarının birçok kez çeşitlemesi vardır. Ancak bunların çok büyük bir çoğunluğu mizah katılarak veya rastgele sözcükler eklenerek renk değiştirirek tek gelmeleri kullanılabilir.</p>
                 <div class="read">
                     <a href="/About" class="btn btn-primary read-m">Devamı</a>
                 </div>
@@ -12,117 +12,51 @@
             <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
                 <div class="tech-btm">
                     <h3>Son Bloglar</h3>
-                    <div class="blog-grids row mb-3">
-                        <div class="col-md-5 blog-grid-left">
-                            <a href="single.html">
-                                <img src="~/CoreBlogTema/images/4.jpg" class="card-img-top img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-7 blog-grid-right">
-                            <h5>
-                                <a href="~/CoreBlogTema/single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
-                            </h5>
-                            <div class="sub-meta">
-                                <span>
-                                    <i class="far fa-clock"></i> 20 Jan, 2018
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog-grids row mb-3">
-                        <div class="col-md-5 blog-grid-left">
-                            <a href="~/CoreBlogTema/single.html">
-                                <img src="~/CoreBlogTema/images/5.jpg" class="card-img-top img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-7 blog-grid-right">
-                            <h5>
-                                <a href="~/CoreBlogTema/single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
-                            </h5>
-                            <div class="sub-meta">
-                                <span>
-                                    <i class="far fa-clock"></i> 20 Jan, 2018
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog-grids row mb-3">
-                        <div class="col-md-5 blog-grid-left">
-                            <a href="~/CoreBlogTema/single.html">
-                                <img src="~/CoreBlogTema/images/6.jpg" class="card-img-top img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-7 blog-grid-right">
-
-                            <h5>
-                                <a href="~/CoreBlogTema/single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
-                            </h5>
-                            <div class="sub-meta">
-                                <span>
-                                    <i class="far fa-clock"></i> 20 Jan, 2018
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
+                    @await Component.InvokeAsync("Last2BlogList")
                 </div>
             </div>
+
             <!-- subscribe -->
             <div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
-                <h2>Mail Bültenine Kayıt Ol</h2>
-                <div class="subscribe-main text-left">
-                    <div class="subscribe-form">
-                        <form action="#" method="post" class="subscribe_form">
-                            <input class="form-control" type="email" placeholder="Email adresiniz..." required="">
-                            <button type="submit" class="btn btn-primary submit">Kaydet</button>
-                        </form>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <p>Gizliliğinize saygı duyuyoruz. Asla spam göndermiyoruz!</p>
-                </div>
-                <!-- //subscribe -->
+                <h3>Email Bültenine Abone Ol</h3>
+                @await Html.PartialAsync("~/Views/Newsletter/SubscribeMail.cshtml")
             </div>
+            <!-- //subscribe -->
         </div>
-        <!-- footer -->
-        <div class="footer-cpy text-center">
-            <div class="footer-social">
-                <div class="copyrighttop">
-                    <ul>
-                        <li class="mx-3">
-                            <a class="facebook" href="#">
-                                <i class="fab fa-facebook-f"></i>
-                                <span>Facebook</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="facebook" href="#">
-                                <i class="fab fa-twitter"></i>
-                                <span>Twitter</span>
-                            </a>
-                        </li>
-                        <li class="mx-3">
-                            <a class="facebook" href="#">
-                                <i class="fab fa-google-plus-g"></i>
-                                <span>Google+</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="facebook" href="#">
-                                <i class="fab fa-pinterest-p"></i>
-                                <span>Pinterest</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="w3layouts-agile-copyrightbottom">
-                <p>
-                    © @DateTime.Now.Year Weblog. All Rights Reserved | Design by
-                    <a href="#">W3layouts</a>
-                </p>
-
-            </div>
-        </div>
-        <!-- //footer -->
     </div>
+    <!-- footer -->
+    <div class="footer-cpy text-center">
+        <div class="footer-social">
+            <div class="copyrighttop">
+                <ul>
+                    <li class="mx-3">
+                        <a class="facebook" href="#">
+                            <i class="fab fa-youtube"></i>
+                            <span>Youtube</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="facebook" href="#">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="facebook" href="#">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span> Linkedin</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="w3layouts-agile-copyrightbottom">
+            <p>
+                © @DateTime.Now.Year Weblog. All Rights Reserved | Design by
+                <a href="/Blog">W3layouts</a>
+            </p>
+
+        </div>
+    </div>
+    <!-- //footer -->
 </footer>
