@@ -11,3 +11,7 @@ asp.net Core MCV ile Blog Projesi
 - Contact
 - Newsletter
 - Author(Writer)
+
+## NuGet Packages
+- Entity Framework
+- Fluent Validation
