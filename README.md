@@ -15,3 +15,8 @@ asp.net Core MCV ile Blog Projesi
 ## NuGet Packages
 - Entity Framework
 - Fluent Validation
+
+## Moduls
+- Blog Pages (+)
+- Author Panel (+)
+- Admin Panel (-)
