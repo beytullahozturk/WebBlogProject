@@ -28,7 +28,7 @@ namespace CoreDemo.Controllers
             if (result.IsValid)
             {
                 w.WriterStatus = true;
-                wm.AddWriter(w);
+                wm.Add(w);
                 return RedirectToAction("Index", "Blog");
             }
             else

@@ -9,7 +9,7 @@ namespace CoreDemo.ViewComponents.Comment
         CommentManager cm = new CommentManager(new EfCommentRepository());
         public IViewComponentResult Invoke(int id)
         {
-            var values = cm.GetAll(id);
+            var values = cm.GetAllById(id);
             return View(values);
         }
     }

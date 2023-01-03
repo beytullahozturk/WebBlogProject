@@ -18,16 +18,6 @@ namespace BusinessLayer.Concrete
             _blogDal = blogDal;
         }
 
-        public void AddBlog(Blog blog)
-        {
-            _blogDal.Insert(blog);
-        }
-
-        public void DeleteBlog(Blog blog)
-        {
-            _blogDal.Delete(blog);
-        }
-
         public List<Blog> GetAll()
         {
             return _blogDal.GetAll();
@@ -57,9 +47,19 @@ namespace BusinessLayer.Concrete
             return _blogDal.GetById(id);
         }
 
-        public void UpdateBlog(Blog blog)
+        public void Add(Blog t)
         {
-            _blogDal.Update(blog);
+            _blogDal.Insert(t);
+        }
+
+        public void Update(Blog t)
+        {
+            _blogDal.Update(t);
+        }
+
+        public void Delete(Blog t)
+        {
+            _blogDal.Delete(t);
         }
     }
 }

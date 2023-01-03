@@ -30,13 +30,13 @@ namespace CoreDemo.Controllers
             c.CommentDate = DateTime.Parse(DateTime.Now.ToString());
             c.CommentStatus = true;
             c.BlogID = 1;
-            cm.AddComment(c);
+            cm.Add(c);
             return PartialView();
         }
 
         public PartialViewResult PartialCommentListByBlog(int id)
         {
-            var values = cm.GetAll(id);
+            var values = cm.GetAllById(id);
             return PartialView(values);
 
         }

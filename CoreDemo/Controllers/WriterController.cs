@@ -13,13 +13,33 @@ namespace CoreDemo.Controllers
         {
             return View();
         }
+
         public IActionResult Profile()
         {
             return View();
         }
+
         public IActionResult Mail()
         {
             return View();
+        }
+
+        [AllowAnonymous]
+        public IActionResult Test()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public IActionResult WriterNavbarPartial()
+        {
+            return PartialView();
+        }
+
+        [AllowAnonymous]
+        public IActionResult WriterFooterPartial()
+        {
+            return PartialView();
         }
     }
 }

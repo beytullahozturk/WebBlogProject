@@ -1,15 +1,10 @@
 ﻿using EntityLayer.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-   public  interface ICommentService
+    public interface ICommentService : IGenericService<Comment>
     {
-        void AddComment(Comment comment);
-        List<Comment> GetAll(int id);
+        List<Comment> GetAllById(int id);
     }
 }
