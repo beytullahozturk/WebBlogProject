@@ -1,13 +1,14 @@
 
 # Blog Project
 
-asp.net Core MCV ile Blog Projesi
+asp.net core MCV ile Blog Projesi
 
 ## Entities
 - About
 - Blog
 - Category
 - Comment
+- BlogRating
 - Contact
 - Newsletter
 - Author(Writer)
@@ -15,3 +16,8 @@ asp.net Core MCV ile Blog Projesi
 ## NuGet Packages
 - Entity Framework
 - Fluent Validation
+
+## Moduls
+- Blog Pages (+)
+- Author Panel (+)
+- Admin Panel (-)
