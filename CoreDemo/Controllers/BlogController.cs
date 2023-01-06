@@ -31,7 +31,7 @@ namespace CoreDemo.Controllers
 
         public IActionResult BlogListByWriter()
         {
-            var values = bm.GetAllBlogByWriter(1);
+            var values = bm.GetAllBlogWithCategoryByWriter(1);
             return View(values);
         }
 
@@ -69,6 +69,34 @@ namespace CoreDemo.Controllers
                 }
             }
             return View();
+        }
+
+        public IActionResult DeleteBlog(int id)
+        {
+            var value = bm.GetById(id);
+            bm.Delete(value);
+            return RedirectToAction("BlogListByWriter", "Blog");
+        }
+
+        [HttpGet]
+        public IActionResult EditBlog(int id)
+        {
+            var value = bm.GetById(id);
+            List<SelectListItem> categoryValues = (from x in cm.GetAll()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryID.ToString()
+                                                   }).ToList();
+            ViewBag.cv = categoryValues;
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult EditBlog(Blog b)
+        {
+            bm.Update(b);
+            return RedirectToAction("BlogListByWriter");
         }
     }
 }

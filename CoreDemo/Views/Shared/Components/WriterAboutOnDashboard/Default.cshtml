@@ -1,0 +1,38 @@
+﻿@model List<Writer>
+@*Writer About On Dashboard*@
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"> Hakkımda </h4>
+                <div class="d-flex">
+                    <div class="d-flex align-items-center mr-4 text-muted font-weight-light">
+                        <i class="mdi mdi-account-outline icon-sm mr-2"></i>
+                        <span>
+                            Yazar
+                        </span>
+                    </div>
+                    <div class="d-flex align-items-center text-muted font-weight-light">
+                        <i class="mdi mdi-mail icon-sm mr-2"></i>
+                        <span>@Model.FirstOrDefault().WriterEmail</span>
+                    </div>
+                </div>
+                <div class="d-flex mt-4 align-items-top">
+                    <img src="~/CoreBlogTema/images/@Model.FirstOrDefault().WriterImage" class="img-sm rounded-circle mr-3" alt="image">
+                    <div class="mb-0 flex-grow">
+                        <h5 class="mr-2 mb-2">
+                            @Model.FirstOrDefault().WriterName
+                        </h5>
+                        <p class="mb-0 font-weight-light">
+                            @Model.FirstOrDefault().WriterAbout
+                        </p>
+                    </div>
+                    <div class="ml-auto">
+                        <i class="mdi mdi-heart-outline text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

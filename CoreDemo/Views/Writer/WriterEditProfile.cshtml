@@ -1,0 +1,55 @@
+﻿@model Writer
+@{
+    ViewData["Title"] = "WriterEditProfile";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+@using (Html.BeginForm("WriterEditProfile", "Writer", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.WriterID)
+    @Html.HiddenFor(x => x.WriterStatus)
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Profil Düzenle</h4>
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Ad Soyad</label>
+                        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+                        @*@Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })*@
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Email</label>
+                        @Html.TextBoxFor(x => x.WriterEmail, new { @class = "form-control" })
+                        @*@Html.ValidationMessageFor(x => x.BlogImage, "", new { @class = "text-danger" })*@
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Görsel</label>
+                        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-gradient-primary" type="button">Yükle</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Parola</label>
+                        @Html.PasswordFor(x => x.WriterPassword, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Hakkımda</label>
+                        @Html.TextAreaFor(x => x.WriterAbout, new { @class = "form-control", @rows = "8" })
+                        @*@Html.ValidationMessageFor(x => x.BlogContent, "", new { @class = "text-danger" })*@
+                    </div>
+                    <button type="submit" class="btn btn-gradient-success mr-2">Kaydet</button>
+                    <button class="btn btn-light">Temizle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}

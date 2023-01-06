@@ -1,0 +1,49 @@
+﻿@model List<Blog>
+@*Blog List for dashboard*@
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Eklediğiniz Son 5 Blog</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> Başlık </th>
+                                <th> Kategori </th>
+                                <th> Durum </th>
+                                <th> Eklenme Tarihi </th>
+                                <th> İşlem </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                                                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/CoreBlogTema/images/@item.BlogImage" class="mr-2" alt="image"> 
+                                        <a href="/Blog/EditBlog/@item.BlogID">@item.BlogTitle</a>
+                                    </td>
+                                    <td> @item.Category.CategoryName </td>
+                                    <td>
+                                        @if (item.BlogStatus)
+                                        {
+                                            <span class="badge badge-gradient-success"><b>Aktif</b></span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-gradient-danger"><b>Pasif</b></span>
+                                        }
+                                    </td>
+                                    <td> @item.BLogCreateDate.ToString("dd.MM.yyy")  </td>
+                                    <td> <a href="/Blog/EditBlog/@item.BlogID" class="btn badge badge-gradient-dark"> Detay </a> </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

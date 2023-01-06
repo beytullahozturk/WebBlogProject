@@ -4,40 +4,51 @@
     Layout = "~/Views/Shared/WriterLayout.cshtml";
 }
 
-<div class="col-lg-12 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Bloglarım</h4>
-            <p class="card-description">
-                <a href="/Blog/BlogAdd" class="btn btn-success btn-sm btn-fw">Yeni Blog</a>
-            </p>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th> # </th>
-                        <th> Başlık </th>
-                        <th> Tarih </th>
-                        <th> Kategori </th>
-                        <th> Durum </th>
-                        <th> Sil </th>
-                        <th> Düzenle </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Bloglarım</h4>
+                <p class="card-description">
+                    <a href="/Blog/BlogAdd" class="btn btn-success btn-sm btn-fw">Yeni Blog</a>
+                </p>
+                <table class="table table-bordered">
+                    <thead>
                         <tr>
-                            <td> @item.BlogID </td>
-                            <td> <a href="#">@item.BlogTitle</a> </td>
-                            <td> @item.BLogCreateDate.ToString("dd-MM-yyy") </td>
-                            <td> @item.CategoryID </td>
-                            <td> @item.BlogStatus </td>
-                            <td> <a href="#" class="btn badge badge-danger">Sil</a></td>
-                            <td> <a href="#" class="btn badge badge-warning">Düzenle</a></td>
+                            <th> # </th>
+                            <th> Başlık </th>
+                            <th> Tarih </th>
+                            <th> Kategori </th>
+                            <th> Durum </th>
+                            <th> Sil </th>
+                            <th> Düzenle </th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td> @item.BlogID </td>
+                                <td> <a href="/Blog/EditBlog/@item.BlogID">@item.BlogTitle</a> </td>
+                                <td> @item.BLogCreateDate.ToString("dd.MM.yyy") </td>
+                                <td> @item.Category.CategoryName </td>
+                                <td>
+                                    @if (item.BlogStatus)
+                                    {
+                                        <span class="badge badge-gradient-success"><b>Aktif</b></span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-gradient-danger"><b>Pasif</b></span>
+                                    }
+                                </td>
+                                <td> <a href="/Blog/DeleteBlog/@item.BlogID" class="btn badge badge-danger" onclick="return confirm('Silmek istediğine emin misiniz?');">Sil</a></td>
+                                <td> <a href="/Blog/EditBlog/@item.BlogID" class="btn badge badge-warning">Düzenle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
