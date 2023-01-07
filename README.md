@@ -11,6 +11,8 @@ asp.net core MCV ile Blog Projesi
 - BlogRating
 - Contact
 - Newsletter
+- Message
+- Notification
 - Author(Writer)
 
 ## NuGet Packages
