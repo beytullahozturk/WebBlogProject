@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CoreDemo.ViewComponents.Blog
+namespace CoreDemo.ViewComponents.Notification
 {
-    public class Last2BlogList : ViewComponent
+    public class NotificationList:ViewComponent
     {
         BlogManager bm = new BlogManager(new EfBlogRepository());
         public IViewComponentResult Invoke()
@@ -18,4 +18,3 @@ namespace CoreDemo.ViewComponents.Blog
         }
     }
 }
-
