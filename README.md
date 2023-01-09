@@ -22,4 +22,4 @@ asp.net core MCV ile Blog Projesi
 ## Moduls
 - Blog Pages (+)
 - Author Panel (+)
-- Admin Panel (-)
+- Admin Panel (+)
