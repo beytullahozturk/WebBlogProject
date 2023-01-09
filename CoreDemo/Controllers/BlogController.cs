@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -8,13 +9,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace CoreDemo.Controllers
 {
-    [AllowAnonymous]
     public class BlogController : Controller
     {
+        Context c = new Context();
+
         BlogManager bm = new BlogManager(new EfBlogRepository());
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
         public IActionResult Index()
@@ -31,7 +34,9 @@ namespace CoreDemo.Controllers
 
         public IActionResult BlogListByWriter()
         {
-            var values = bm.GetAllBlogWithCategoryByWriter(1);
+            var userMail = User.Identity.Name;
+            var writerID = c.Writers.Where(x => x.WriterEmail == userMail).Select(y => y.WriterID).FirstOrDefault();
+            var values = bm.GetAllBlogWithCategoryByWriter(writerID);
             return View(values);
         }
 
@@ -51,13 +56,17 @@ namespace CoreDemo.Controllers
         [HttpPost]
         public IActionResult BlogAdd(Blog b)
         {
+            var userMail = User.Identity.Name;
+            var writerID = c.Writers.Where(x => x.WriterEmail == userMail).Select(y => y.WriterID).FirstOrDefault();
+
             BlogValidator bv = new BlogValidator();
             ValidationResult result = bv.Validate(b);
             if (result.IsValid)
             {
                 b.BlogStatus = true;
-                b.WriterID = 1;
-                b.BLogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                b.WriterID = writerID;
+                b.BlogTitle = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(b.BlogTitle);
+                b.BLogCreateDate = DateTime.Now;
                 bm.Add(b);
                 return RedirectToAction("BlogListByWriter", "Blog");
             }

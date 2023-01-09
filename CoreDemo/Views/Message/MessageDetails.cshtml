@@ -1,0 +1,25 @@
+﻿@model Message2
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Mesaj Detayı</h4>
+                <p class="card-description">
+                        <a href="/Message/InBox" class="btn btn-warning btn-sm btn-icon-text">
+                            <i class="mdi mdi-arrow-left"></i> Geri
+                        </a>
+                </p>
+                <hr />
+                <p> <span class="font-weight-bold">Konu :</span> @Model.Subject </p>
+                <p class="font-weight-bold"> Mesaj : </p>
+                <p class="text-justify"> @Model.MessageDetails </p>
+            </div>
+        </div>
+    </div>
+</div>
+
