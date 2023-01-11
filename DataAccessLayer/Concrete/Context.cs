@@ -37,6 +37,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Message> Messages { get; set; }
         public DbSet<Message2> Message2s { get; set; }
         public DbSet<Writer> Writers { get; set; }
+        public DbSet<Admin> Admins { get; set; }
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         #endregion

@@ -1,8 +1,64 @@
-﻿
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<EntityLayer.Concrete.Category>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h1>Kategoriler Index</h1>
 
+<div class="row">
+    <div class="col-lg-8">
+        <div class="ibox ">
+            <div class="ibox-title">
+
+                <h5>Kategori Listesi</h5>
+                <br />
+                <a href="/Admin/Category/AddCategory" class="btn btn-success btn-sm">Kategori Ekle</a>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kateori</th>
+                            <th>Aktif</th>
+                            <th>Pasif</th>
+                            <th>Düzenle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.CategoryID</td>
+                                <td>@item.CategoryName</td>
+                                <td>
+                                    <a href="/Admin/Category/DeleteCategory/@item.CategoryID" id="btnDelete" 
+                                       onclick="return confirm('Kategoriyi silmek istediğinize emin misiniz?');" 
+                                       class="btn btn-warning btn-sm">Aktif Yap</a>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-danger btn-sm">Pasif Yap</a>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-primary btn-sm">Düzenle</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
