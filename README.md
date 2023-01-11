@@ -26,4 +26,4 @@ asp.net core MCV ile Blog Projesi
 - Blog Pages
 - Author Panel
 - Admin Panel
--- Statistic Widgets
+ - Statistic Widgets
