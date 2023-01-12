@@ -21,7 +21,7 @@ namespace CoreDemo.Controllers
         [HttpPost]
         public PartialViewResult SubscribeMail(Newsletter n)
         {
-            n.NewsletterStatus = true;
+            //n.NewsletterStatus = true;
             nm.Add(n);
             return PartialView();
         }

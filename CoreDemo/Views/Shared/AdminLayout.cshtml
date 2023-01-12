@@ -209,6 +209,7 @@
     <script src="~/admin/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
     <script src="~/admin/js/plugins/flot/jquery.flot.resize.js"></script>
 
+
     <script>
         $(document).ready(function () {
             $('.i-checks').iCheck({
@@ -372,6 +373,7 @@
         });
     </script>
 
+    @await RenderSectionAsync("myscripts")
 
 </body>
 </html>
