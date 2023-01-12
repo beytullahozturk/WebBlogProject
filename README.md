@@ -14,12 +14,16 @@ asp.net core MCV ile Blog Projesi
 - Message
 - Notification
 - Author(Writer)
+- Admin
 
 ## NuGet Packages
 - Entity Framework
 - Fluent Validation
+- PagedList
+- ClosedXML
 
 ## Moduls
-- Blog Pages (+)
-- Author Panel (+)
-- Admin Panel (+)
+- Blog Pages
+- Author Panel
+- Admin Panel
+  * Statistic Widgets
