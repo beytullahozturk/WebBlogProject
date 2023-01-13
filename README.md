@@ -21,6 +21,7 @@ asp.net core MCV ile Blog Projesi
 - Fluent Validation
 - PagedList
 - ClosedXML
+- AspNetCore Identity
 
 ## Moduls
 - Blog Pages
